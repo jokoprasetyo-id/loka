@@ -11,7 +11,7 @@
 
     <!-- ===== CONFIG PWA ===== -->
     <!-- Link ke Manifest PWA -->
-    <link rel="manifest" href="/loka/manifest.json" />
+    <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#10b981" />
 
     <!-- Meta tag pendukung untuk iOS Safari (iPhone/iPad) -->
@@ -28,7 +28,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('sw.js')
             .then((reg) => {
               console.log('Service Worker berhasil terdaftar dengan scope: ', reg.scope);
             })
