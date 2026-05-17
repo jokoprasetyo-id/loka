@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loka Planner</title>
+    
+    <!-- Link CDN Tailwind CSS (Supaya style selalu aktif) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ===== CONFIG PWA ===== -->
+    <!-- Link ke Manifest PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#10b981" />
+
+    <!-- Meta tag pendukung untuk iOS Safari (iPhone/iPad) -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+  </head>
+  <body class="bg-slate-50">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- ===== DAFTARKAN SERVICE WORKER PWA ===== -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((reg) => {
+              console.log('Service Worker berhasil terdaftar dengan scope: ', reg.scope);
+            })
+            .catch((err) => {
+              console.log('Pendaftaran Service Worker gagal: ', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
